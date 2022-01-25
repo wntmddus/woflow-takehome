@@ -12,10 +12,10 @@ const getUniqueNodes = async () => {
     console.log(set.size);
     console.log(nodeWithMaxAppearance);
 
-
+    // map contains the count of each child that appeared.
     console.log(getNodeThatSharedTheMost(map));
 
-
+    // set contains number of nodes in given starting node
     return set.size;
 }
 
@@ -24,13 +24,11 @@ const getNodeThatSharedTheMost = (map) => {
 
     const keySet = Object.keys(map);
     for (let i = 0; i < keySet.length; i++) {
-        map[keySet[i]];
         if (!reverseMap[map[keySet[i]]]) {
             reverseMap[map[keySet[i]]] = [];
         }
         reverseMap[map[keySet[i]]].push(keySet[i]);
     }
-    console.log(reverseMap);
     return maxCount;
 }
 
@@ -40,7 +38,7 @@ const treverseTree = async (set, map, currUUID) => {
     const response = (await axios.get(url_base + currUUID)).data;
     const nodeChildren = response[0].child_node_ids;
     set.add(currUUID);
-    // console.log(nodeList[0].child_node_ids.length);
+    // iterate through all the nodes to see if those are already visited or not;
     for (let i = 0; i < nodeChildren.length; i++) {
         if (map[nodeChildren[1]]) {
             map[nodeChildren[1]] = map[nodeChildren[1]] + 1;
