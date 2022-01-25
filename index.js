@@ -8,11 +8,12 @@ const getUniqueNodes = async () => {
 
 
     await treverseTree(set, map, '089ef556-dfff-4ff2-9733-654645be56fe');
-    console.log(map);
     console.log(set.size);
     console.log(nodeWithMaxAppearance);
-
     // map contains the count of each child that appeared.
+    console.log(map);
+
+    // function call to this will get the node that appeared the most in children
     console.log(getNodeThatSharedTheMost(map));
 
     // set contains number of nodes in given starting node
